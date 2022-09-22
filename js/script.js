@@ -6,10 +6,13 @@ const student = [
 		surename: "Медведев",
 		lastname: "Николевич",
 		dateBirth: new Date(1978, 9, 22),
-		startНYear: 2019,
+		startНYear: 2011,
 		faculty: "История",
 	},
 ];
+
+const $studentsList = document.getElementById("students-list"),
+	$studentsListTHALL = document.querySelectorAll(".student__table th");
 
 function getFIO(student) {
 	for (let i = 0; i < student.length; i++) {
@@ -23,7 +26,7 @@ function getFIO(student) {
 	}
 }
 
-function getВateBirth(student) {
+function getDateBirth(student) {
 	for (let i = 0; i < student.length; i++) {
 		const yyyy = student[i].dateBirth.getFullYear();
 		let mm = student[i].dateBirth.getMonth() + 1; // Months start at 0!
@@ -76,7 +79,7 @@ function getAGE(student) {
 			age--;
 		}
 		return (
-			getВateBirth(student) +
+			getDateBirth(student) +
 			" " +
 			"(" +
 			age +
@@ -115,4 +118,35 @@ function getCourse(student) {
 		}
 	}
 }
-// console.log(getCourse(student));
+
+// получить tr студента
+function newStudentTR(student) {
+	const $studentTR = document.createElement("tr"),
+		$fioTD = document.createElement("td"),
+		$dateBirthTD = document.createElement("td"),
+		$startYearTD = document.createElement("td"),
+		$facultyTD = document.createElement("td");
+	// $fioTD.innerHTML = getFIO();
+	$facultyTD.textContent = student.faculty;
+	$dateBirthTD.textContent = getFIO();
+
+	$studentTR.append($fioTD);
+	$studentTR.append($facultyTD);
+	$studentTR.append($startYearTD);
+	$studentTR.append($dateBirthTD);
+
+	return $studentTR;
+}
+
+function renderTable() {
+	let studentCopy = student;
+	$studentsList.innerHTML = "";
+	for (const student of studentCopy) {
+		$studentsList.append(newStudentTR(student));
+	}
+}
+renderTable();
+
+console.log(getFIO(student));
+console.log(getCourse(student));
+console.log(getAGE(student));
