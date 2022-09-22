@@ -1,0 +1,101 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: sans-serif;
+	color: #000;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+img {
+	display: block;
+	width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.container {
+	padding: 100px 15px;
+	margin: 0 auto;
+	max-width: 1230px;
+	width: 100%;
+}
+
+.student-title {
+	font-size: 46px;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.table {
+	margin: 50px auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+table {
+	font-size: 18px;
+	border-radius: 10px;
+	border-spacing: 0;
+	text-align: center;
+}
+th {
+	background: #2656f5;
+	color: #fff;
+	text-shadow: 0 1px 1px #2d2020;
+	padding: 10px 20px;
+}
+th,
+td {
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	border-color: white;
+}
+th:first-child,
+td:first-child {
+	text-align: left;
+}
+th:first-child {
+	border-top-left-radius: 10px;
+}
+th:last-child {
+	border-top-right-radius: 10px;
+	border-right: none;
+}
+td {
+	padding: 10px 20px;
+	background: #f8e391;
+}
+tr:last-child td:first-child {
+	border-radius: 0 0 0 10px;
+}
+tr:last-child td:last-child {
+	border-radius: 0 0 10px 0;
+}
+tr td:last-child {
+	border-right: none;
+}
