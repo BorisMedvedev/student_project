@@ -6,7 +6,7 @@ const student = [
 		surename: "Медведев",
 		lastname: "Николевич",
 		dateBirth: new Date(1978, 9, 22),
-		startНYear: "22.10.2012",
+		startНYear: 2019,
 		faculty: "История",
 	},
 ];
@@ -66,9 +66,9 @@ function trueRussianDecline(d1, d2, d3, c) {
 
 function getAGE(student) {
 	for (let i = 0; i < student.length; i++) {
-		var today = new Date();
-		var age = today.getFullYear() - student[i].dateBirth.getFullYear();
-		var m = today.getMonth() - student[i].dateBirth.getMonth();
+		let today = new Date();
+		let age = today.getFullYear() - student[i].dateBirth.getFullYear();
+		let m = today.getMonth() - student[i].dateBirth.getMonth();
 		if (
 			m < 0 ||
 			(m === 0 && today.getDate() < student[i].dateBirth.getDate())
@@ -86,13 +86,33 @@ function getAGE(student) {
 	}
 }
 
-function titleLearn(str) {}
-
-function titleLearn() {
-	var now = new Date();
-	var date = new Date(2015, 23);
-	var diff = now - date;
-	console.log(diff);
-	return diff;
+function age() {
+	let currentTime = new Date();
+	let year = currentTime.getFullYear();
+	return year;
 }
-console.log(titleLearn());
+
+function getCourse(student) {
+	for (let i = 0; i < student.length; i++) {
+		if (age() - student[i].startНYear >= 4) {
+			return (
+				student[i].startНYear +
+				"-" +
+				(student[i].startНYear + 4) +
+				" (закончил)"
+			);
+		} else {
+			return (
+				student[i].startНYear +
+				"-" +
+				(student[i].startНYear + 4) +
+				" " +
+				"(" +
+				(age() - student[i].startНYear) +
+				" курс" +
+				")"
+			);
+		}
+	}
+}
+// console.log(getCourse(student));
