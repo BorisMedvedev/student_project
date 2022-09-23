@@ -28,7 +28,7 @@ body {
 	font-weight: 400;
 	font-family: sans-serif;
 	color: #000;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 img {
@@ -62,6 +62,10 @@ table {
 	border-radius: 10px;
 	border-spacing: 0;
 	text-align: center;
+	overflow: hidden;
+	-webkit-box-shadow: -8px 9px 21px 6px rgba(34, 60, 80, 0.23);
+	-moz-box-shadow: -8px 9px 21px 6px rgba(34, 60, 80, 0.23);
+	box-shadow: -8px 9px 21px 6px rgba(34, 60, 80, 0.23);
 }
 th {
 	background: #2656f5;
@@ -99,4 +103,10 @@ tr:last-child td:last-child {
 }
 tr td:last-child {
 	border-right: none;
+}
+
+.table-dark th,
+.table-dark thead th {
+	border-color: #454d55;
+	text-align: center;
 }

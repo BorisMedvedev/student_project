@@ -7,7 +7,15 @@ const student = [
 		lastname: "Николевич",
 		dateBirth: new Date(1978, 9, 22),
 		startНYear: 2011,
-		faculty: "История",
+		faculty: "Истории",
+	},
+	{
+		name: "Василий",
+		surename: "Васильев",
+		lastname: "Николевич",
+		dateBirth: new Date(1998, 9, 22),
+		startНYear: 2015,
+		faculty: "Математики",
 	},
 ];
 
@@ -34,7 +42,6 @@ function getDateBirth(student) {
 
 		if (dd < 10) dd = "0" + dd;
 		if (mm < 10) mm = "0" + mm;
-
 		return dd + "." + mm + "." + yyyy;
 	}
 }
@@ -123,18 +130,18 @@ function getCourse(student) {
 function newStudentTR(student) {
 	const $studentTR = document.createElement("tr"),
 		$fioTD = document.createElement("td"),
+		$facultyTD = document.createElement("td"),
 		$dateBirthTD = document.createElement("td"),
-		$startYearTD = document.createElement("td"),
-		$facultyTD = document.createElement("td");
-	$fioTD.innerHTML = getFIO(student.startНYear);
+		$startYearTD = document.createElement("td");
+
+	$fioTD.textContent = getFIO(student);
 	$facultyTD.textContent = student.faculty;
-	$dateBirthTD.textContent = student.startНYear;
+	$dateBirthTD.textContent = getDateBirth(student);
 
 	$studentTR.append($fioTD);
 	$studentTR.append($facultyTD);
-	$studentTR.append($startYearTD);
 	$studentTR.append($dateBirthTD);
-
+	$studentTR.append($startYearTD);
 	return $studentTR;
 }
 
@@ -147,6 +154,4 @@ function renderTable() {
 }
 renderTable();
 
-console.log(getFIO(student));
-console.log(getCourse(student));
-console.log(getAGE(student));
+newStudentTR(student);
