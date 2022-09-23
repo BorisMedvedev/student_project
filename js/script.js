@@ -17,6 +17,14 @@ const student = [
 		startНYear: 2015,
 		faculty: "Математики",
 	},
+	{
+		name: "Василий",
+		surename: "Васильев",
+		lastname: "Николевич",
+		dateBirth: new Date(1998, 9, 22),
+		startНYear: 2015,
+		faculty: "Философии",
+	},
 ];
 
 const $studentsList = document.getElementById("students-list"),
