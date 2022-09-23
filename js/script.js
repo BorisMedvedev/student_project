@@ -128,7 +128,7 @@ function newStudentTR(student) {
 		$facultyTD = document.createElement("td");
 	// $fioTD.innerHTML = getFIO();
 	$facultyTD.textContent = student.faculty;
-	$dateBirthTD.textContent = getFIO();
+	$dateBirthTD.textContent = student.startНYear;
 
 	$studentTR.append($fioTD);
 	$studentTR.append($facultyTD);
