@@ -23,12 +23,20 @@ a {
 }
 
 body {
+	min-height: 100vh;
 	margin: 0;
 	font-size: 20px;
 	font-weight: 400;
 	font-family: sans-serif;
 	color: #000;
-	background-color: rgba(0, 0, 0, 0.2);
+	background: linear-gradient(to bottom,
+			#323232 0%,
+			#3f3f3f 40%,
+			#1c1c1c 150%),
+		linear-gradient(to top,
+			rgba(255, 255, 255, 0.6) 0%,
+			rgba(0, 0, 0, 0.25) 200%);
+	background-blend-mode: multiply;
 }
 
 img {
@@ -46,13 +54,15 @@ img {
 }
 
 .student-title {
+	margin-bottom: 30px;
 	font-size: 46px;
 	text-transform: uppercase;
-	color: #000;
+	color: rgb(148, 147, 147);
+	font-weight: 700;
 }
 
 .table {
-	margin: 50px auto;
+	margin: 15px auto;
 	max-width: 100%;
 	width: 100%;
 }
@@ -62,41 +72,88 @@ table {
 	border-radius: 10px;
 	border-spacing: 0;
 	text-align: center;
+	overflow: hidden;
 }
+
 th {
 	background: #2656f5;
 	color: #fff;
-	text-shadow: 0 1px 1px #2d2020;
-	padding: 10px 20px;
+	padding: 20px 20px;
+	font-size: 26px;
+	text-align: center;
 }
+
 th,
 td {
 	border-style: solid;
 	border-width: 0 1px 1px 0;
 	border-color: white;
+	text-align: center;
 }
+
 th:first-child,
 td:first-child {
 	text-align: left;
 }
+
 th:first-child {
 	border-top-left-radius: 10px;
 }
+
 th:last-child {
 	border-top-right-radius: 10px;
 	border-right: none;
 }
+
 td {
 	padding: 10px 20px;
-	background: #f8e391;
+	background-color: #bdcff7;
 	color: #000;
+	font-weight: 600;
+	text-align: center;
 }
+
 tr:last-child td:first-child {
 	border-radius: 0 0 0 10px;
 }
+
 tr:last-child td:last-child {
 	border-radius: 0 0 10px 0;
 }
+
 tr td:last-child {
 	border-right: none;
+}
+
+.form-filter {
+	max-width: 500px;
+	margin-top: 50px;
+	display: flex;
+	align-items: flex-start;
+}
+
+table-dark th,
+.table-dark thead th {
+	border-color: #000;
+	text-align: center;
+}
+
+td:first-child {
+	text-align: center;
+}
+
+
+.form-control {
+	display: block;
+	width: 50%;
+	color: #000000;
+	background-color: rgb(216, 216, 216);
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-control::placeholder {
+	color: #444444;
 }
