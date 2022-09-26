@@ -3,7 +3,7 @@ import Student from "./student.js";
 
 const arrayStudents = [
 	new Student("Борис", "Медведев", "Николевич", new Date(1978, 9, 22), 2011, "Истории"),
-	new Student("Василий", "Кононов", "Петрович", new Date(2000, 5, 10), 2020, "Химии"),
+	new Student("Василий", "Кононов", "Петрович", new Date(1990, 5, 10), 2017, "Химии"),
 	new Student("Кирилл", "Медведев", "Борисович", new Date(2005, 6, 23), 2019, "Философии"),
 ];
 
@@ -19,8 +19,8 @@ function newStudentTR(student) {
 		$startYearTD = document.createElement("td");
 	$fioTD.textContent = student.getFIO();
 	$facultyTD.textContent = student.faculty;
-	new Date($dateBirthTD.textContent = student.getAGE());
-	Number($startYearTD.textContent = student.getCourse());
+	$dateBirthTD.textContent = student.getAGE();
+	$startYearTD.textContent = student.getCourse();
 
 	$studentTR.append($fioTD);
 	$studentTR.append($facultyTD);
@@ -29,6 +29,20 @@ function newStudentTR(student) {
 
 	return $studentTR;
 }
+
+document.getElementById('add-student').addEventListener('submit', function (event) {
+	event.preventDefault();
+
+	arrayStudents.push(new Student(
+		document.getElementById('input-name').value,
+		document.getElementById('input-surename').value,
+		document.getElementById('input-lastname').value,
+		new Date(document.getElementById('input-datebirth').value),
+		Number(document.getElementById('input-startyear').value),
+		document.getElementById('input-faculty').value,
+	));
+	renderTable();
+});
 
 function renderTable() {
 	const arrayStudentsCopy = [...arrayStudents];
