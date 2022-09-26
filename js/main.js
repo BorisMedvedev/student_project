@@ -47,6 +47,8 @@ document.getElementById('add-student').addEventListener('submit', function (even
 function renderTable() {
 	const arrayStudentsCopy = [...arrayStudents];
 	$studentsList.textContent = "";
+
+
 	for (const student of arrayStudentsCopy) {
 		$studentsList.append(newStudentTR(student));
 	}
