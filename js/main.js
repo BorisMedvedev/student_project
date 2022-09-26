@@ -18,9 +18,9 @@ function newStudentTR(student) {
 		$dateBirthTD = document.createElement("td"),
 		$startYearTD = document.createElement("td");
 	$fioTD.textContent = student.getFIO();
-	$dateBirthTD.textContent = student.getDateBirth();
 	$facultyTD.textContent = student.faculty;
-	// $startYearTD.textContent = student.getCourse();
+	new Date($dateBirthTD.textContent = student.getAGE());
+	Number($startYearTD.textContent = student.getCourse());
 
 	$studentTR.append($fioTD);
 	$studentTR.append($facultyTD);

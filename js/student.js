@@ -69,11 +69,11 @@ export default class Student {
 		}
 
 		// return age;
-		return (getDateBirth() + " " + "(" + age + trueRussianDecline(" лет", " год", " года", age) + ")");
+		return (this.getDateBirth() + " " + "(" + age + this.trueRussianDecline(" лет", " год", " года", age) + ")");
 	}
 
 	getCourse() {
-		if (Age() - this.startНYear >= 4) {
+		if (this.Age() - this.startНYear >= 4) {
 			return (
 				this.startНYear + "-" + (this.startНYear + 4) + " (закончил)"
 			);
@@ -84,7 +84,7 @@ export default class Student {
 				(this.startНYear + 4) +
 				" " +
 				"(" +
-				(Age() - this.startНYear) +
+				(this.Age() - this.startНYear) +
 				" курс" +
 				")"
 			);
