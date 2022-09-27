@@ -42,12 +42,7 @@
 				<button class="btn btn-primary">Добавить студента</button>
 			</form>
 
-			<form class="form-group form-filter" action="">
-				<label class="input-group mb-3" for="">
-					<input class="form-control" id="" type="text" placeholder="Введите ФИО для поиска">
-				</label>
-				<button class="btn btn-success">Найти</button>
-			</form>
+
 		</div>
 
 		<table class="table table-dark table-sm student__table">
@@ -63,6 +58,16 @@
 
 			</tbody>
 		</table>
+
+		<form id="filter-form" class="form-group form-filter" action="">
+			<label class="input-group mb-3" for="">
+				<input id="form__input-fio" class="form-control" type="text" placeholder="Введите ФИО для поиска">
+			</label>
+			<label class="input-group mb-3" for="">
+				<input id="form__input-faculty" class="form-control" type="text" placeholder="Введите факультет для поиска">
+			</label>
+			<button class="btn btn-success">Найти</button>
+		</form>
 
 
 

@@ -10,7 +10,7 @@ export default class Student {
 		this.faculty = faculty;
 	}
 
-	getFIO() {
+	get FIO() {
 		return this.surename + " " + this.name + " " + this.lastname;
 	}
 

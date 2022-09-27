@@ -19,7 +19,7 @@ function newStudentTR(student) {
 		$facultyTD = document.createElement("td"),
 		$dateBirthTD = document.createElement("td"),
 		$startYearTD = document.createElement("td");
-	$fioTD.textContent = student.getFIO();
+	$fioTD.textContent = student.FIO;
 	$facultyTD.textContent = student.faculty;
 	$dateBirthTD.textContent = student.getAGE();
 	$startYearTD.textContent = student.getCourse();
@@ -47,30 +47,6 @@ document.getElementById('add-student').addEventListener('submit', function (even
 });
 
 
-function filterTable(arr, prop, value) {
-	// let copy = [...arrayStudents];
-	arr = [...arrayStudents];
-
-	$studentsList.textContent = "";
-
-	for (const item of arr) {
-		if (String(item[prop]).includes(value) == true) {
-			arr.push(item);
-		}
-		return arr;
-	}
-
-}
-let arr2 = filterTable(arrayStudents, "getCourse()", "2011-2015");
-console.log(arr2);
-
-
-
-
-
-
-
-
 function renderTable() {
 	const arrayStudentsCopy = [...arrayStudents];
 	$studentsList.textContent = "";
@@ -81,3 +57,29 @@ function renderTable() {
 }
 
 renderTable();
+
+
+function filterTable(arr, prop, value) {
+	const inpfio = document.getElementById("form__input-fio").value;
+	const inpfaculty = document.getElementById("form__input-faculty").value;
+
+
+	$studentsList.textContent = "";
+	let array = [];
+	for (const item of arrayStudents) {
+		if (String(item[prop]).includes(value) == true) {
+			array.push(item);
+			$studentsList.append(newStudentTR(item));
+		}
+	}
+	return arrayStudents;
+}
+
+document.getElementById('filter-form').addEventListener('submit', function (event) {
+	event.preventDefault();
+
+	filterTable(arrayStudents);
+});
+
+let arr = filterTable(arrayStudents, "FIO", "Медведев");
+console.log(arr);
