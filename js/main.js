@@ -33,7 +33,6 @@ function newStudentTR(student) {
 
 document.getElementById('add-student').addEventListener('submit', function (event) {
 	event.preventDefault();
-
 	arrayStudents.push(new Student(
 		document.getElementById('input-name').value,
 		document.getElementById('input-surename').value,
@@ -58,14 +57,9 @@ function renderTable() {
 
 renderTable();
 
-
 function filterTable(arr, prop, value) {
-	const inpfio = document.getElementById("form__input-fio").value;
-	const inpfaculty = document.getElementById("form__input-faculty").value;
-
-
-	$studentsList.textContent = "";
 	let array = [];
+	$studentsList.textContent = "";
 	for (const item of arrayStudents) {
 		if (String(item[prop]).includes(value) == true) {
 			array.push(item);
@@ -75,11 +69,24 @@ function filterTable(arr, prop, value) {
 	return arrayStudents;
 }
 
+function filter(arr) {
+	const inpfio = document.getElementById("form__input-fio").value;
+	const inpfaculty = document.getElementById("form__input-faculty").value;
+	// const inpage = document.getElementById("form__input-age").value;
+	arr = [...arrayStudents];
+	if (inpfio !== "") {
+		arr = filterTable(arr, "FIO", inpfio);
+	} else {
+		renderTable();
+	}
+	if (inpfaculty !== "") {
+		arr = filterTable(arr, "faculty", inpfaculty);
+	} else {
+		renderTable();
+	}
+}
+
 document.getElementById('filter-form').addEventListener('submit', function (event) {
 	event.preventDefault();
-
-	filterTable(arrayStudents);
+	filter(arrayStudents);
 });
-
-let arr = filterTable(arrayStudents, "FIO", "Медведев");
-console.log(arr);

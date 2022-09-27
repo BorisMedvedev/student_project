@@ -90,4 +90,15 @@ export default class Student {
 			);
 		}
 	}
+
+	getAGE2() {
+		let today = new Date();
+		let age = today.getFullYear() - this.dateBirth.getFullYear();
+		let m = today.getMonth() - this.dateBirth.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < this.dateBirth.getDate())) {
+			age--;
+		}
+
+		return (age);
+	}
 }
