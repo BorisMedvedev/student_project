@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 	<meta charset="UTF-8" />
@@ -8,10 +8,10 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="./css/normalize.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 	<link rel="stylesheet" href="./css/style.css" />
 
-	<script src="./js/main.js" defer type="module"></script>
+	<script src="js/main.js" defer type="module"></script>
 </head>
 
 <body>
@@ -21,59 +21,52 @@
 		<div class="student-wrapper">
 			<form class="form-group" id="add-student" action="">
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-surename" type="text" placeholder="Фамилия">
+					<input class="form-control" id="input-surename" type="text" placeholder="Фамилия" />
 				</label>
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-name" type="text" placeholder="Имя">
+					<input class="form-control" id="input-name" type="text" placeholder="Имя" />
 				</label>
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-lastname" type="text" placeholder="Отчество">
+					<input class="form-control" id="input-lastname" type="text" placeholder="Отчество" />
 				</label>
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-datebirth" type="date" min="1900-01-01">
-
+					<input class="form-control" id="input-datebirth" type="date" min="1900-01-01" />
 				</label>
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-startyear" type="number" placeholder="Начало учебы">
+					<input class="form-control" id="input-startyear" type="number" placeholder="Начало учебы" />
 				</label>
 				<label class="input-group mb-3" for="">
-					<input class="form-control" id="input-faculty" type="text" placeholder="Факультет">
+					<input class="form-control" id="input-faculty" type="text" placeholder="Факультет" />
 				</label>
 				<button class="btn btn-primary">Добавить студента</button>
 			</form>
-
-
 		</div>
 
 		<table class="table table-dark table-sm student__table">
 			<thead>
 				<tr>
-					<th>Ф.И.О.</th>
-					<th>Факультет</th>
-					<th>Дата рождения</th>
-					<th>Годы обучения</th>
+					<th class="sorty" data-column="FIO"><span>Ф.И.О.</span></th>
+					<th class="sorty" data-column="faculty"><span>Факультет</span></th>
+					<th class="sorty" data-column="dateBirth"><span>Дата рождения</span></th>
+					<th class="sorty" data-column="startНYear"><span>Годы обучения</span></th>
 				</tr>
 			</thead>
-			<tbody id="students-list">
-
-			</tbody>
+			<tbody id="students-list"></tbody>
 		</table>
 
 		<form id="filter-form" class="form-group form-filter" action="">
 			<label class="input-group mb-3" for="">
-				<input id="form__input-fio" class="form-control" type="text" placeholder="Введите ФИО для поиска">
+				<input id="form__input-fio" class="form-control" type="text" placeholder="Введите ФИО для поиска" />
 			</label>
 			<label class="input-group mb-3" for="">
-				<input id="form__input-faculty" class="form-control" type="text" placeholder="Введите факультет для поиска">
+				<input id="form__input-faculty" class="form-control" type="text"
+					placeholder="Введите факультет для поиска" />
 			</label>
 			<!-- <label class="input-group mb-3" for="">
 				<input id="form__input-age" class="form-control" type="text" placeholder="Введите год для поиска">
 			</label> -->
 			<button class="btn btn-success">Найти студента</button>
 		</form>
-
-
-
 	</div>
 </body>
 

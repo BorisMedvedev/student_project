@@ -10,7 +10,10 @@ const arrayStudents = [
 
 const $studentsList = document.getElementById("students-list");
 const $studentsListTHALL = document.querySelectorAll(".student__table th");
+const arrow = document.querySelectorAll(".sorty");
 
+let column = "FIO";
+let dir = true;
 // получить tr студента
 function newStudentTR(student) {
 
@@ -45,10 +48,33 @@ document.getElementById('add-student').addEventListener('submit', function (even
 	renderTable();
 });
 
+function sortTable(prop, dir) {
+	const arrayStudentsCopy = [...arrayStudents];
+	return arrayStudentsCopy.sort(function (studentA, studentB) {
+		if ((!dir == false ? studentA[prop] < studentB[prop] : studentA[prop] > studentB[prop]))
+			return -1;
+	});
+}
+
+$studentsListTHALL.forEach(el => {
+	el.addEventListener("click", function () {
+		arrow.forEach((n, i, a) => {
+			n.addEventListener('click', () => a.forEach(m => m.classList.toggle('active', m === n)));
+
+		});
+		column = this.dataset.column;
+		dir = !dir;
+
+		renderTable();
+	});
+});
+
 
 function renderTable() {
-	const arrayStudentsCopy = [...arrayStudents];
+	let arrayStudentsCopy = [...arrayStudents];
 	$studentsList.textContent = "";
+
+	arrayStudentsCopy = sortTable(column, dir);
 
 	for (const student of arrayStudentsCopy) {
 		$studentsList.append(newStudentTR(student));
@@ -56,6 +82,8 @@ function renderTable() {
 }
 
 renderTable();
+
+
 
 function filterTable(arr, prop, value) {
 	let array = [];
@@ -81,8 +109,6 @@ function filter(arr) {
 	}
 	if (inpfaculty !== "") {
 		arr = filterTable(arr, "faculty", inpfaculty);
-	} else {
-		renderTable();
 	}
 }
 
